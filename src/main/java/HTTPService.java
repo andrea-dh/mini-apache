@@ -104,23 +104,21 @@ public class HTTPService implements Runnable {
                 // GET /uno.html HTTP/1.1
                 String tokens[] = commandLine.split("\\s+");
 
-                //fileName = tokens[1].substring(tokens[1].lastIndexOf('/') + 1);
+                fileName = tokens[1].substring(tokens[1].lastIndexOf('/') + 1);
 
 
-                if (tokens[1].length() == 1) {
-                    fileName = DOCUMENT_ROOT+"/index.html";
-                }else{
-                    fileName = DOCUMENT_ROOT+ tokens[1];
+                System.out.println(fileName);
 
-                }
-                File fp = new File(fileName);
-                if(fp.isDirectory()){
-                    LOG.info("Es un directorio: "+fileName);
+                if(fileName.equals("")){
+                    fileName=DOCUMENT_ROOT+"/";
+                    LOG.info(" Directorio: "+DOCUMENT_ROOT);
                     dirListing(fileName);
                     clientSocket.close();
-                    return;
-
                 }
+                else{
+                    fileName = DOCUMENT_ROOT+"/"+fileName;
+                }
+
 
             }
 

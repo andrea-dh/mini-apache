@@ -10,7 +10,7 @@ public class Apachito {
 
     private static final Logger LOG = Logger.getLogger(CLASS_NAME);
 
-    public static final int HTTP_PORT = 8080;
+    public static final int HTTP_PORT = 3000;
 
     public static void main(String[] args) {
         // http://localhost:8080/ejemplo.jpg
